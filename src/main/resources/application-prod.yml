@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: 'demo'
+  datasource:
+    hikari:
+      driver-class-name: 'com.mysql.cj.jdbc.Driver'
+      jdbc-url: 'jdbc:mysql://localhost:3306/test?characterEncoding=utf8&serverTimezone=GMT'
+      username: 'root'
+      password: 'cp5679192'
+      pool-name: 'mysql-hikari'
+      maximum-pool-size: 8
+
+swagger:
+  production: true
+
+server:
+  port: 8080

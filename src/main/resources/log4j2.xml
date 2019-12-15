@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="30">
+    <Properties>
+        <Property name="product">demo</Property>
+    </Properties>
+    <Appenders>
+        <!--错误日志-->
+        <RollingFile name="RollingErrorFile" fileName="logs/${product}/error/${product}.log"
+                     filePattern="logs/${product}/error/$${date:yyyy-MM}/${product}.%d{yyyy-MM-dd HH}.%i.log.gz">
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d %p %c{1.} [%t] %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+            <!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件，这里设置了100 -->
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <!--警告日志-->
+        <RollingFile name="RollingWarnFile" fileName="logs/${product}/warn/${product}.log"
+                     filePattern="logs/${product}/warn/$${date:yyyy-MM}/${product}.%d{yyyy-MM-dd HH}.%i.log.gz">
+            <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d %p %c{1.} [%t] %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <!--info日志-->
+        <RollingFile name="RollingInfoFile" fileName="logs/${product}/info/${product}.log"
+                     filePattern="logs/${product}/info/$${date:yyyy-MM}/${product}.%d{yyyy-MM-dd HH}.%i.log.gz">
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d %p %c{1.} [%t] %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="1000"/>
+        </RollingFile>
+
+        <!--控制台日志-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d [%t] %-5p - %m (%F:%L) -%-4r%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <AsyncRoot level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingInfoFile"/>
+            <AppenderRef ref="RollingWarnFile"/>
+            <AppenderRef ref="RollingErrorFile"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>
