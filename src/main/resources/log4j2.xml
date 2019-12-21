@@ -40,7 +40,7 @@
 
         <!--控制台日志-->
         <Console name="Console" target="SYSTEM_OUT">
-            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="%d [%t] %-5p - %m (%F:%L) -%-4r%n"/>
         </Console>
     </Appenders>
