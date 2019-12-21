@@ -11,7 +11,10 @@ public class UserDao {
     private UserMapper userMapper;
 
 
-    public void saveUser(User user){
+    public void saveUser(User user) throws InterruptedException {
+        long time = (long) (Math.random() * 20000);
+        System.out.println("当前线程"+ Thread.currentThread().getName() + "阻塞时间为："+time);
+        Thread.sleep(time);
         userMapper.insert(user);
     }
 

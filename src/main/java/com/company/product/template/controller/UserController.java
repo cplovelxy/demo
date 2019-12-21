@@ -33,8 +33,8 @@ public class UserController {
             @ApiResponse(code = 200, message = "返回信息")
     })
     @RequestMapping(method = RequestMethod.POST , value = "/add")
-    public User test(@RequestBody User user) {
+    public User test(@RequestBody User user) throws InterruptedException {
         userDao.saveUser(user);
-        return null;
+        return user;
     }
 }
