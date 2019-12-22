@@ -1,3 +1,4 @@
+/*
 package com.company.product.template.config;
 
 import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
@@ -24,3 +25,4 @@ public class DbReadWriteAop {
     }
 
 }
+*/

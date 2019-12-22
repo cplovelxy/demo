@@ -2,19 +2,13 @@ spring:
   application:
     name: 'demo'
   datasource:
-    dynamic:
-      primary: 'master'
-      datasource:
-        master:
-          username: 'test'
-          password: '@Kxtx5679192'
-          driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://39.108.11.190:3306/test
-        slave:
-          username: 'test'
-          password: '@Kxtx5679192'
-          driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://111.229.24.46:3306/test
+    hikari:
+      driver-class-name: 'com.mysql.cj.jdbc.Driver'
+      jdbc-url: jdbc:mysql://39.108.11.190:8066/TESTDB?characterEncoding=utf8&useSSL=false&serverTimezone=GMT
+      username: 'root'
+      password: '123456'
+      pool-name: 'mysql-hikari'
+      maximum-pool-size: 8
 
 server:
   port: 8080
