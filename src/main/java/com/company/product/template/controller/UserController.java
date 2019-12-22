@@ -30,6 +30,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST , path = "/save")
     public void save(){
         User user = new User();
+        user.setId(2L);
         user.setPassword("xx");
         user.setAvatarUrl("xx");
         user.setDeviceId("xx");

@@ -3,12 +3,13 @@ spring:
     name: 'demo'
   datasource:
     hikari:
-      driver-class-name: 'com.mysql.cj.jdbc.Driver'
-      jdbc-url: jdbc:mysql://39.108.11.190:8066/TESTDB?characterEncoding=utf8&useSSL=false&serverTimezone=GMT
+      driver-class-name: 'com.mysql.jdbc.Driver'
+      jdbc-url: 'jdbc:mysql://39.108.11.190:8066/TESTDB?characterEncoding=utf8&useSSL=false&serverTimezone=GMT'
       username: 'root'
       password: '123456'
       pool-name: 'mysql-hikari'
       maximum-pool-size: 8
+
 
 server:
   port: 8080

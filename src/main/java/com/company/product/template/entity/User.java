@@ -28,6 +28,9 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "用户名称")
+    private Long id;
+
+    @ApiModelProperty(value = "用户名称")
     private String name;
 
     @ApiModelProperty(value = "用户密码")
@@ -195,5 +198,13 @@ public class User implements Serializable {
 
     public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
