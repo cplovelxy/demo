@@ -17,6 +17,8 @@ public class RedisSonConfig {
     public RedissonClient redisConfig() {
         Config config = new Config();
         config.useClusterServers()
+                .addNodeAddress("redis://39.108.11.190:6001")
+                .addNodeAddress("redis://39.108.11.190:6002")
                 .addNodeAddress("redis://39.108.11.190:7001")
                 .addNodeAddress("redis://39.108.11.190:7002")
                 .addNodeAddress("redis://39.108.11.190:8001")
